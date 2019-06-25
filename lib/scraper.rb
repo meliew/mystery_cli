@@ -10,10 +10,9 @@ page = Nokogiri::HTML(open(site))
 # results_array << 
 results = page.css(".Books a")
 
-results.each do |r|
-puts r.text.gsub("\n        ", " ")
+results.each.with_index do |r, i|
+puts "#{i+1}. #{r.text.gsub("\n        ", " ")}"
 
-# (/[[:space:]]/, ' ')
 end
 
 # results_array.each do |genre|
