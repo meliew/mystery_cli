@@ -15,6 +15,11 @@ puts "#{i+1}. #{r.text.gsub("\n        ", " ")}"
 
 end
 
+
+
+
+
+
 # results_array.each do |genre|
 # puts "#{genre[0]}"
 # end 
