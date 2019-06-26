@@ -1,18 +1,19 @@
 class Scraper 
   
 
-def get_genre_list 
-site = "http://www.stopyourekillingme.com/GenreCats/index.html"
+  def get_genre_list 
+    site = "https://www.goodreads.com/genres/mystery"
+    
+    page = Nokogiri::HTML(open(site))
+    
+    results = page.css(".left").css(".gr-hyperlink")
 
-page = Nokogiri::HTML(open(site))
-# results_array = []
-# results_array << 
-results = page.css(".Books a")
 
-results.each.with_index do |r, i|
-puts "#{i+1}. #{r.text.gsub("\n        ", " ")}"
+    results.each.with_index do |r, i|
 
-end
+      puts "#{i+1}. #{r.text}"
+  end
+
 
 end
 
