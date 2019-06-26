@@ -8,10 +8,12 @@ class Scraper
     
     results = page.css(".left").css(".gr-hyperlink")
 
-
     results.each.with_index do |r, i|
+    
+    if r.text != "Fiction"
 
-      puts "#{i+1}. #{r.text}"
+    puts "#{i}. #{r.text}"
+  
   end
 
 
