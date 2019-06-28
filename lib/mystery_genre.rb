@@ -1,3 +1,0 @@
-class MysteryGenre
-  
-end 
