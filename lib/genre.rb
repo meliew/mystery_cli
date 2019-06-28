@@ -1,4 +1,4 @@
-module Genre 
+class Genre 
   
   @@all = []
   
