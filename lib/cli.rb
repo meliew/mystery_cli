@@ -1,20 +1,30 @@
 class CLI 
   
   def run 
-    self.welcome 
-    Scraper.get_genre_list 
-    loop do 
-      puts "choose a mystery genre by number"
-      input = gets.chomp 
-      if input =='exit' || input.include?('n')
-        return 
-      else 
-        self.
+    puts "Welcome to Choose Your Next Mystery"
+    # get_available_genres
+    # get_user_genre_choice 
+    # get_book_list_by_genre(genre_number)
+    # list_books 
   end
   
- 
- 
- 
- 
- 
+  def get_available_genres 
+    
+    genre_choices = ["Suspense", "Crime", "Cozy", "Thriller"]
+    puts "choose your genre"
+    puts genre_choices
+    input = gets.chomp.to_i 
+    
+    
+  end 
+  
+  def get_user_genre_choice
+    genres = []
+    
+  end 
 end
+ 
+ 
+ 
+ 
+ 
