@@ -23,7 +23,7 @@ input = gets.chomp.to_i
 
 g = genres[input]
 if !g
-  puts "That "
+  puts "That item does not exist"
   return
 end
   
