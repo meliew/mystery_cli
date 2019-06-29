@@ -1,7 +1,10 @@
 class CLI 
   
   def run 
-    puts "Welcome to Choose Your Next Mystery"
+    puts "\nWelcome to Choose Your Next Mystery"
+    get_available_genres
+    list_genres
+    get_user_genre
     # get_available_genres
     # get_user_genre_choice 
     # get_book_list_by_genre(genre_number)
@@ -13,15 +16,20 @@ class CLI
     @genres = ["Suspense", "Crime", "Cozy", "Thriller"]
   end
   
-  def get_user_genre
-        puts "Choose your next mystery genre by selecting the number you want:"
-
+  def list_genres
+      puts "\nChoose your next mystery by selecting the number of the genre you want:"
       @genres.each.with_index do |genre, index|
         puts "#{index+1}. #{genre}"
-      end
-        input = gets.chomp.to_i 
-      
+        end
     end 
+    
+    def get_user_genre
+      input = gets.chomp
+    end
+    
+    def valid_input?(input, data)
+      input.to_i <= data.length && input.to_i > 0 
+    end
 end
  
 

@@ -4,5 +4,3 @@ require_relative '../lib/environment'
 
 app = CLI.new
 app.run
-app.get_available_genres
-app.get_user_genre
