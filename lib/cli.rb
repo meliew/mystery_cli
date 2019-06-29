@@ -10,19 +10,18 @@ class CLI
   
   def get_available_genres 
     
-    genre_choices = ["1. Suspense", "2. Crime", "3. Cozy", "4. Thriller"]
-    puts "choose your genre by number"
-    puts genre_choices
-    input = gets.chomp.to_i 
-    puts input 
-    
-    
-  end 
+    @genres = ["Suspense", "Crime", "Cozy", "Thriller"]
+  end
   
-  def get_user_genre_choice
-    genres = []
-    
-  end 
+  def get_user_genre
+        puts "Choose your next mystery genre by selecting the number you want:"
+
+      @genres.each.with_index do |genre, index|
+        puts "#{index+1}. #{genre}"
+      end
+        input = gets.chomp.to_i 
+      
+    end 
 end
  
 
