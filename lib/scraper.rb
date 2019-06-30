@@ -2,31 +2,40 @@ class Scraper
   
 
   def get_genre_list 
-  site = "https://www.goodreads.com"  
-  page = Nokogiri::HTML(open(site+"/genres/mystery"))   
-  results = page.css(".left .gr-hyperlink")
+    site = "https://www.goodreads.com"  
+    page = Nokogiri::HTML(open(site+"/genres/mystery"))   
+    results = page.css(".left .gr-hyperlink")
 
-  genres = {}
+    genres = {}
 
-  results.each.with_index do |r, i|
-    if r.text != "Fiction"
-      genres[i] = {:genre => r.text, :url => site+r.attribute("href").value}
-  end
-end
-
-  genres.each do |k, g|
-    puts "#{k}: #{g[:genre]}"
+    results.each.with_index do |r, i|
+      if r.text != "Fiction"
+        genres[i] = {:genre => r.text, :url => site+r.attribute("href").value}
+    end
   end
 
-puts "Choose the number genre you would like:"
-input = gets.chomp.to_i
+    genres.each do |k, g|
+      puts "#{k}: #{g[:genre]}"
+  end
 
-g = genres[input]
-if !g
-  puts "That item does not exist"
-  return
+  puts "Choose the number genre you would like:"
+  input = gets.chomp.to_i
+
+  g = genres[input]
+  if !g
+    puts "That item does not exist "
+    return
+  end
+
+  @genre = g
+  
 end
   
+  def about_genre_scraper 
+    site = @genre[:url]
+    page = Nokogiri::HTML(open(site))   
+    results = page.css("div.mediumText")[0]
+    puts results.text
   end
 
 
