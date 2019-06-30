@@ -27,6 +27,7 @@ class CLI
     
     def get_user_genre
       input = gets.chomp.to_i
+      show_books(input) if valid_input?(input, @genres)
     end
     
     def valid_input?(input, data)
