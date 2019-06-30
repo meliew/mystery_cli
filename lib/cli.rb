@@ -5,8 +5,6 @@ class CLI
     get_available_genres
     list_genres
     get_user_genre
-    valid_input?(input, @genres)
-    show_books(input)
     # get_available_genres
     # get_user_genre_choice 
     # get_book_list_by_genre(genre_number)
@@ -14,28 +12,27 @@ class CLI
   end
   
   def get_available_genres 
-    
-    @genres = ["Suspense", "Crime", "Cozy", "Thriller"]
+     @genres = ["Suspense", "Crime", "Cozy", "Thriller"]
   end
   
   def list_genres
       puts "\nChoose your next mystery by selecting the number of the genre you want:"
-      @genres.each.with_index do |genre, index|
-        puts "#{index+1}. #{genre}"
-        end
+      @genres.each.with_index(1) do |genre, index|
+        puts "#{index}. #{genre}"
+      end
     end 
     
     def get_user_genre
-      input = gets.chomp.to_i
-      show_books(input) if valid_input?(input, @genres)
+      chosen_genre = gets.chomp.to_i
+      show_books(chosen_genre) if valid_input?(chosen_genre, @genres)
     end
     
     def valid_input?(input, data)
-      input <= data.length && input > 0 
+      input.to_i <= data.length && input.to_i > 0 
     end
     
-    def show_books(input)
-      subgenre = @genres[input - 1]
+    def show_books(chosen_genre)
+      subgenre = @genres[chosen_genre - 1]
       puts "Here are the new releases for #{subgenre}"
     end
 end
