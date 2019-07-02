@@ -1,5 +1,5 @@
 class Book 
   
-  attr_accessor :genre, :url
+  attr_accessor :genre, :url, :title 
   
 end 
