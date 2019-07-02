@@ -5,10 +5,6 @@ class CLI
     get_available_genres
     list_genres
     get_user_genre
-    # get_available_genres
-    # get_user_genre_choice 
-    # get_book_list_by_genre(genre_number)
-    # list_books
   end
   
   def get_available_genres 
