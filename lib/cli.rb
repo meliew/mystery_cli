@@ -3,6 +3,7 @@ class CLI
   def initialize
     intro
     # get_available_genres
+    #scrape everything and store it 
     # list_genres
     get_user_input
   end
@@ -12,6 +13,7 @@ class CLI
   end
   
   def get_available_genres 
+    # scrape everything 
     # Scraper.all.each.with_index(1) do |
      
   end
