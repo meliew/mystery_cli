@@ -3,7 +3,7 @@ class Genre
   attr_accessor :name, :url, :books, :description
 
   
-  @@all = ["a", "b"]
+  @@all = []
   
   
   def initialize(genre_hash)

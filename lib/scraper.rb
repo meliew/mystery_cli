@@ -1,5 +1,7 @@
 class Scraper
 
+attr_accessor :genres 
+
   def genre_scraper
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
@@ -13,13 +15,13 @@ class Scraper
       end
     end
 
-    genres.each do |k, g|
-      puts "#{k}: #{g[:name]}"
-    end
+    # genres.each do |k, g|
+    #   puts "#{k}: #{g[:name]}"
+    # end
 
 
-    puts "Choose the number genre you would like:"
-    input = gets.chomp.to_i
+    # puts "Choose the number genre you would like:"
+    # input = gets.chomp.to_i
 
     g = genres[input]
     if !g
@@ -36,7 +38,7 @@ class Scraper
     bio = results[1] || results[0]
     #  results = page.css("div.mediumText span").children[0]
 
-    puts bio.text
+    # puts bio.text
 
   end
 
