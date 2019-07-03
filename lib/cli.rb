@@ -2,8 +2,8 @@ class CLI
   
   def initialize
     intro
-    get_available_genres
-    list_genres
+    # get_available_genres
+    # list_genres
     get_user_input
   end
   

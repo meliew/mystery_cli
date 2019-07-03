@@ -1,14 +1,14 @@
 class Genre 
   
-  attr_accessor :name, :url
+  attr_accessor :name, :url, :books, :description
 
   
-  @@all = []
+  @@all = ["a", "b"]
   
   
-  def initialize(name, url)
-    @name = name
-    @url = url
+  def initialize(genre_hash)
+    @name = genre_hash[:name]
+    @url = genre_hash[:url]
     @@all << self
   end
   
@@ -17,7 +17,7 @@ class Genre
   end
   
   def self.find_books(user_input)
-    self.all[user_input.to_i -1]
+    self.all[user_input.to_i - 1]
   end
   
 end 

@@ -9,3 +9,4 @@ require_relative "./mystery_cli/version"
 
 require_relative './cli'
 require_relative './scraper'
+require_relative './genre'

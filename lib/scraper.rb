@@ -9,12 +9,12 @@ class Scraper
 
     results.each.with_index do |r, i|
       if r.text != "Fiction" && r.text != "Murder Mystery"
-        genres[i] = {:genre => r.text, :url => site+r.attribute("href").value}
+        genres[i] = {:name => r.text, :url => site+r.attribute("href").value}
       end
     end
 
     genres.each do |k, g|
-      puts "#{k}: #{g[:genre]}"
+      puts "#{k}: #{g[:name]}"
     end
 
 
