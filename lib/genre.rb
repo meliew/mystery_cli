@@ -1,19 +1,23 @@
 class Genre 
   
+  attr_accessor :name, :url
+
+  
   @@all = []
   
-  attr_accessor :name, :books, :authors, :url
   
-  def self.all 
-    @@all 
-  end 
-  
-  def initialize(name: name, url: url)
+  def initialize(name, url)
     @name = name
     @url = url
     @@all << self
   end
   
+  def self.all 
+    @@all 
+  end
   
+  def self.find_books(user_input)
+    self.all[user_input.to_i -1]
+  end
   
 end 
