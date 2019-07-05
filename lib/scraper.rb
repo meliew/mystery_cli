@@ -2,16 +2,21 @@ class Scraper
 
 attr_accessor :genres 
 
-  def genre_scraper
+ @@genres = {}
+
+  def self.genre_scraper
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
     results = page.css(".left .gr-hyperlink")
 
-    genres = {}
+   
 
     results.each.with_index do |r, i|
       if r.text != "Fiction" && r.text != "Murder Mystery"
-        genres[i] = {:name => r.text, :url => site+r.attribute("href").value}
+        @@genres = {:name => r.text, :url => site+r.attribute("href").value
+          
+        }
+        Genre.new(@@genres)
       end
     end
 
@@ -31,19 +36,19 @@ attr_accessor :genres
     @genre = g
   end
 
-  def about_genre_scraper
-    site = @genre[:url]
+  def self.bio_scrape
+    site = @@genre[:url]
     page = Nokogiri::HTML(open(site))
     results = page.css("div.mediumText.reviewText span")
-    bio = results[1] || results[0]
+    Genre.bio = results[1] || results[0]
     #  results = page.css("div.mediumText span").children[0]
 
     # puts bio.text
 
   end
 
-  def new_release_scraper
-    site = @genre[:url]
+  def self.new_release_scraper
+    site = @@genre[:url]
     page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
     results = page.css(".leftContainer .bigBoxBody").first.css(".bookImage")
     results.each do |book|

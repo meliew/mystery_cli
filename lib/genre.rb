@@ -16,6 +16,10 @@ class Genre
     @@all 
   end
   
+  def self.bio=(genre)
+    @bio = bio 
+  end
+  
   def self.find_books(user_input)
     self.all[user_input.to_i - 1]
   end
