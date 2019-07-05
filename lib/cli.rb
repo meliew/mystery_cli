@@ -2,9 +2,8 @@ class CLI
   
   def initialize
     intro
-    # get_available_genres
-    #scrape everything and store it 
-    # list_genres
+    Scraper.genre_scraper 
+    list_genres
     get_user_input
   end
   
@@ -19,9 +18,9 @@ class CLI
   end
   
   def list_genres
-      # @genres.each.with_index(1) do |genre, index|
-        #puts "#{index}. #{genre}"
-      end
+    puts "Here are the genres related to mystery"
+    Genre.all.each_with_index { |g, i| puts "#{i+1}. #{g.name}" }
+  end
     
     # g = @@all[input]
     # if !g
@@ -48,6 +47,16 @@ end
   
     def valid_input?(input, data)
       input.to_i <= data.length && input.to_i > 0 
+    end
+    
+    def more_info
+      puts "Would you like to see a list of new releases for your genre?(type y/n)"
+      answer = gets.chomp.downcase 
+      if answer == "y"
+        show_books(genre_input)
+      else 
+        puts "Goodbye"
+      end
     end
     
     def show_books(genre_input)

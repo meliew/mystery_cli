@@ -8,9 +8,7 @@ attr_accessor :genres
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
     results = page.css(".left .gr-hyperlink")
-
-   
-
+    
     results.each.with_index do |r, i|
       if r.text != "Fiction" && r.text != "Murder Mystery"
         @@genres = {:name => r.text, :url => site+r.attribute("href").value
@@ -19,6 +17,7 @@ attr_accessor :genres
         Genre.new(@@genres)
       end
     end
+  end
 
     # genres.each do |k, g|
     #   puts "#{k}: #{g[:name]}"
@@ -28,13 +27,13 @@ attr_accessor :genres
     # puts "Choose the number genre you would like:"
     # input = gets.chomp.to_i
 
-    g = genres[input]
-    if !g
-      puts "That item does not exist "
-      return
-    end
-    @genre = g
-  end
+  #   g = @@genres[input]
+  #   if !g
+  #     puts "That item does not exist "
+  #     return
+  #   end
+  #   @genre = g
+  # end
 
   def self.bio_scrape
     site = @@genre[:url]
