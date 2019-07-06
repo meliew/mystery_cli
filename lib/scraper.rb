@@ -11,10 +11,7 @@ attr_accessor :genres
     
     results.each.with_index do |r, i|
       if r.text != "Fiction" && r.text != "Murder Mystery"
-        @@genres = {:name => r.text, :url => site+r.attribute("href").value
-          
-        }
-        Genre.new(@@genres)
+        Genre.new({:id => i + 1, :name => r.text, :url => site+r.attribute("href").value})
       end
     end
   end

@@ -1,6 +1,6 @@
 class Genre 
   
-  attr_accessor :name, :url, :books, :description
+  attr_accessor :name, :url, :books, :bio
 
   
   @@all = []
