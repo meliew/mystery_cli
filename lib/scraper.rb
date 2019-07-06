@@ -1,9 +1,5 @@
 class Scraper
-
-attr_accessor :genres 
-
- @@selected_genre = nil
-
+  
   def self.genre_scraper
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
@@ -17,7 +13,7 @@ attr_accessor :genres
       end
     end
   end
-
+  
   def self.bio_scrape(genre)
     site = genre.url
     page = Nokogiri::HTML(open(site))
@@ -25,7 +21,7 @@ attr_accessor :genres
     bio = results[1] || results[0]
     genre.bio = bio.text
   end
-
+  
   def self.new_release_scraper(genre)
     site = genre.url
     page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
@@ -36,8 +32,11 @@ attr_accessor :genres
     end
     books
   end
-
+  
 end
+
+
+
 
 
 
