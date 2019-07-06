@@ -55,7 +55,7 @@ class CLI
     books = Scraper.new_release_scraper(@selected_genre)
     
     books.each.with_index do |title, i|
-      puts "#{i}. #{title}"
+      puts "#{i+1}. #{title}"
     end
   end
   
