@@ -4,7 +4,6 @@ class CLI
   
   def initialize
     intro
-    sleep 1
     Scraper.genre_scraper 
     list_genres
     get_user_input
@@ -12,6 +11,13 @@ class CLI
     show_bio
     more_info
   end
+  # create new instance method called run 
+  #move items from initialize here 
+  #update CLI so they can see the list of genres again - go backwards to 
+  #move back in application 
+  #when people go back to main menu it should recall start but only call Scraper methods if it doesn't already exist. if statement. Scraper.genre_scraper if genre.all = []
+  
+  
   
   def intro
     puts "\nWelcome to Choose Your Next Mystery!"

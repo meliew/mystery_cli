@@ -5,7 +5,7 @@ class Genre
   
   @@all = {}
   
-  
+  #refactor id 
   def initialize(genre_hash)
     @name = genre_hash[:name]
     @url = genre_hash[:url]
