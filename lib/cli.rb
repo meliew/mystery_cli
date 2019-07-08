@@ -14,7 +14,11 @@ class CLI
   end
   
   def intro
-    puts "\nWelcome to Choose Your Next Mystery! Did you know there are many subgenres related to the mystery genre? This tool will help you select a new type of mystery and can show you new releases as well. Let's get started!"
+    puts "\nWelcome to Choose Your Next Mystery!"
+    sleep 1
+    puts "Did you know there are many subgenres related to the mystery genre?"
+    sleep 1
+    puts "This tool will help you select a new type of mystery. Let's get started!"
   end
   
   def list_genres
