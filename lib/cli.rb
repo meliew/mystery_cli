@@ -4,15 +4,17 @@ class CLI
   
   def initialize
     intro
-    Scraper.genre_scraper 
+  end
+  
+  def run
+     Scraper.genre_scraper 
     list_genres
     get_user_input
     Scraper.bio_scrape(@selected_genre)
     show_bio
     more_info
   end
-  # create new instance method called run 
-  #move items from initialize here 
+  
   #update CLI so they can see the list of genres again - go backwards to 
   #move back in application 
   #when people go back to main menu it should recall start but only call Scraper methods if it doesn't already exist. if statement. Scraper.genre_scraper if genre.all = []
@@ -41,8 +43,9 @@ class CLI
     
     if genre_input == "exit"
       quit
+     
     elsif !@selected_genre
-      puts "That item does not exist."
+      puts "That item does not exist. Please double check your input."
       quit
     end
   end
@@ -52,6 +55,7 @@ class CLI
   end
 
   def more_info
+    
     puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no)"
     answer = gets.chomp.downcase 
     if answer == "y"
