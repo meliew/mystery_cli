@@ -7,13 +7,22 @@ class CLI
   end
   
   def run
-     Scraper.genre_scraper 
+    Scraper.genre_scraper 
+    loop do 
     list_genres
-    get_user_input
+    user_input = get_user_input
+    if user_input == 'exit' 
+        return
+    else
     Scraper.bio_scrape(@selected_genre)
     show_bio
+    sleep 2
     more_info
+    sleep 4
+    end
   end
+end
+  
   
   #update CLI so they can see the list of genres again - go backwards to 
   #move back in application 
@@ -46,7 +55,7 @@ class CLI
      
     elsif !@selected_genre
       puts "That item does not exist. Please double check your input."
-      quit
+     
     end
   end
   
@@ -60,8 +69,10 @@ class CLI
     answer = gets.chomp.downcase 
     if answer == "y"
       show_books
+      elsif answer == "n"
+      puts "Thanks"
     else 
-      quit
+      puts "That's not a valid input. Please try again. Type y to see a list of new releases and n for no."
     end
   end
   
@@ -71,7 +82,9 @@ class CLI
     
     books.each.with_index do |title, i|
       puts "#{i+1}. #{title}"
+     
     end
+    
   end
   
  def quit 
