@@ -2,11 +2,8 @@ class CLI
   
   @selected_genre = nil
   
-  def initialize
-    intro
-  end
-  
   def run
+    intro
     Scraper.genre_scraper 
     loop do 
     list_genres
