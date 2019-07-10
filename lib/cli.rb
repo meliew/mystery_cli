@@ -25,6 +25,10 @@ end
   #move back in application 
   #when people go back to main menu it should recall start but only call Scraper methods if it doesn't already exist. if statement. Scraper.genre_scraper if genre.all = []
   
+  #see if genre.books.length is greater than zero, if it's not zero then go to the next step 
+  
+  #display second level info, then ask the user what they want to do. go back, exit.
+  
   
   
   def intro
@@ -70,7 +74,9 @@ end
       puts "Thanks"
     else 
       puts "That's not a valid input. Please try again. Type y to see a list of new releases and n for no."
+      more_info
     end
+    
   end
   
   def show_books
