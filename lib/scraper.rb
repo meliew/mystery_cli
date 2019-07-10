@@ -25,7 +25,7 @@ class Scraper
     new_releases.each do |book|
       genre.books << book.attribute("alt").text
     end
-    books
+    
   end
   
   # def self.new_release_scraper(genre)

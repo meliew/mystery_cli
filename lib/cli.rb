@@ -78,7 +78,7 @@ end
   
   def show_books
     puts "Here are the new releases for #{@selected_genre.name}"
-    books = @books
+    books = @selected_genre.books
     
     books.each.with_index do |title, i|
       puts "#{i+1}. #{title}"
