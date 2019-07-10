@@ -14,7 +14,7 @@ class CLI
     if user_input == 'exit' 
         return
     else
-    Scraper.bio_scrape(@selected_genre)
+    Scraper.info_scraper(@selected_genre)
     show_bio
     sleep 2
     more_info
@@ -78,7 +78,7 @@ end
   
   def show_books
     puts "Here are the new releases for #{@selected_genre.name}"
-    books = Scraper.new_release_scraper(@selected_genre)
+    books = @books
     
     books.each.with_index do |title, i|
       puts "#{i+1}. #{title}"

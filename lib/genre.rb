@@ -11,6 +11,7 @@ class Genre
     @url = genre_hash[:url]
     id = genre_hash[:id]
     @@all[id] = self
+    @books = []
   end
   
   def self.all 
