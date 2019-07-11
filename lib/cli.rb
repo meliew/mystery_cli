@@ -22,14 +22,6 @@ class CLI
 end
   
   
-  #update CLI so they can see the list of genres again - go backwards to 
-  #move back in application 
-  
-  
-  #display second level info, then ask the user what they want to do. go back, exit.
-  
-  
-  
   def intro
     puts "\nWelcome to Choose Your Next Mystery!".colorize(:blue)
     sleep 1
@@ -56,9 +48,8 @@ end
     elsif genre_input == 'back'
     get_user_input 
     else 
-      puts "That item does not exist. Please double check your input.".colorize(:yellow)
-      #genre_input = gets.chomp.downcase
-    get_user_input
+      puts "Hmmm, that doesn't look right. Please double check your input and try again.".colorize(:yellow)
+      get_user_input
     end
   end
   
@@ -81,14 +72,13 @@ end
         elsif answer == 'exit'
         quit
         else 
-      puts "That's not a valid input. Please try again. Type y to see a list of new releases, n for no, 'back' to choose a new genre, and 'exit' to quit the program."
+      puts "Hmmm, that doesn't look right. Please try again. Type y to see a list of new releases, n for no, 'back' to choose a new genre, and 'exit' to quit the program.".colorize(:yellow)
       more_info
     end
-    
   end
   
   def show_books
-    puts "Here are the new releases for #{@selected_genre.name}"
+    puts "Here are the new releases for #{@selected_genre.name}:"
     books = @selected_genre.books
     
     books.each.with_index do |title, i|
@@ -97,7 +87,6 @@ end
       go_back?
      
     end
-    
   end
   
   def go_back?
