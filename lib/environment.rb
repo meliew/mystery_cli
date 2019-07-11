@@ -1,7 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
 require_relative "./mystery_cli/version"
-require 'pry'
 
 # module MyCliProject
 #   class Error < StandardError; 

@@ -48,16 +48,17 @@ end
   def get_user_input
     genre_input = nil
     puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program"
-    
     genre_input = gets.chomp.downcase
     if genre_input.to_i <= Genre.all.count && genre_input.to_i > 0 
     @selected_genre = Genre.all[genre_input.to_i]
     elsif genre_input == "exit"
     quit 
+    elsif genre_input == 'back'
+    get_user_input 
     else 
-   # binding.pry
       puts "That item does not exist. Please double check your input."
-    get_user_input
+      genre_input = gets.chomp.downcase
+    #get_user_input
     end
   end
   
@@ -67,14 +68,18 @@ end
 
   def more_info
     
-    puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no)"
+    puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no). If you'd like to choose another genre type 'back', otherwise please type 'exit' to quit the program."
     answer = gets.chomp.downcase 
     if answer == "y"
       show_books
       elsif answer == "n"
-      puts "Thanks"
-    else 
-      puts "That's not a valid input. Please try again. Type y to see a list of new releases and n for no."
+      puts "Please type 'exit' to quit, or 'back' to choose a new genre."
+        elsif answer == "back"
+        list_genres
+        elsif answer == 'exit'
+        quit
+        else 
+      puts "That's not a valid input. Please try again. Type y to see a list of new releases, n for no, 'back' to choose a new genre, and 'exit' to quit the program."
       more_info
     end
     
@@ -90,6 +95,20 @@ end
     end
     
   end
+  
+  # def go_back?
+  #   puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to exit the program."
+  #   info = gets.chomp.downcase
+  #   if info == 'y'
+  #     list_genres 
+  #     elsif info == 'n' || info == 'exit'
+  #     quit
+  #   else 
+  #     puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program."
+  #     go_back?
+  #   end
+    
+ # end
   
  def quit 
    puts "Goodbye"
