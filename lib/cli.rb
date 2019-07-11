@@ -12,6 +12,7 @@ class CLI
         return
     else
     Scraper.info_scraper(@selected_genre)
+    # binding.pry
     show_bio
     sleep 2
     more_info
@@ -49,14 +50,14 @@ end
     puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program"
     
     genre_input = gets.chomp.downcase
+    if genre_input.to_i <= Genre.all.count && genre_input.to_i > 0 
     @selected_genre = Genre.all[genre_input.to_i]
-    
-    if genre_input == "exit"
-      quit
-     
-    elsif !@selected_genre
+    elsif genre_input == "exit"
+    quit 
+    else 
+   # binding.pry
       puts "That item does not exist. Please double check your input."
-     
+    get_user_input
     end
   end
   

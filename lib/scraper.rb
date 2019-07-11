@@ -15,6 +15,7 @@ class Scraper
   end
   
   def self.info_scraper(genre)
+   # binding.pry
     site = genre.url
     page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
     bio_results = page.css("div.mediumText.reviewText span")
