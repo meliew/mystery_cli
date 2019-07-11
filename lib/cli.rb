@@ -57,8 +57,8 @@ end
     get_user_input 
     else 
       puts "That item does not exist. Please double check your input."
-      genre_input = gets.chomp.downcase
-    #get_user_input
+      #genre_input = gets.chomp.downcase
+    get_user_input
     end
   end
   
@@ -73,7 +73,8 @@ end
     if answer == "y"
       show_books
       elsif answer == "n"
-      puts "Please type 'exit' to quit, or 'back' to choose a new genre."
+      go_back?
+      #puts "Please type 'exit' to quit, or 'back' to choose a new genre."
         elsif answer == "back"
         list_genres
         elsif answer == 'exit'
@@ -96,19 +97,19 @@ end
     
   end
   
-  # def go_back?
-  #   puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to exit the program."
-  #   info = gets.chomp.downcase
-  #   if info == 'y'
-  #     list_genres 
-  #     elsif info == 'n' || info == 'exit'
-  #     quit
-  #   else 
-  #     puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program."
-  #     go_back?
-  #   end
+  def go_back?
+    puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to quit the program."
+    info = gets.chomp.downcase
+    if info == 'y'
+      list_genres 
+      elsif info == 'n' || info == 'exit'
+      quit
+    else 
+      puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program."
+      go_back?
+    end
     
- # end
+  end
   
  def quit 
    puts "Goodbye"
