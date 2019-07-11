@@ -1,10 +1,14 @@
 class Scraper
   
+  
+  #when people go back to main menu it should recall start but only call Scraper methods if it doesn't already exist. if statement. Scraper.genre_scraper if genre.all = []
+  
+  #see if genre.books.length is greater than zero, if it's not zero then go to the next step 
+  
   def self.genre_scraper
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
     results = page.css(".left .gr-hyperlink")
-    
     i = 1
     results.each do |r|
       if r.text != "Fiction" && r.text != "Murder Mystery"

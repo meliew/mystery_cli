@@ -24,30 +24,30 @@ end
   
   #update CLI so they can see the list of genres again - go backwards to 
   #move back in application 
-  #when people go back to main menu it should recall start but only call Scraper methods if it doesn't already exist. if statement. Scraper.genre_scraper if genre.all = []
   
-  #see if genre.books.length is greater than zero, if it's not zero then go to the next step 
   
   #display second level info, then ask the user what they want to do. go back, exit.
   
   
   
   def intro
-    puts "\nWelcome to Choose Your Next Mystery!"
+    puts "\nWelcome to Choose Your Next Mystery!".colorize(:blue)
     sleep 1
     puts "Did you know there are many subgenres related to the mystery genre?"
-    sleep 1
+    sleep 2
     puts "This tool will help you select a new type of mystery. Let's get started!"
+    sleep 3
   end
   
   def list_genres
-    puts "Here are the subgenres related to the mystery genre"
+    puts "Here are the subgenres related to the mystery genre".colorize(:light_blue)
+    sleep 2
     Genre.all.each{ |i, g| puts "#{i}. #{g.name}" }
   end
   
   def get_user_input
     genre_input = nil
-    puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program"
+    puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program".colorize(:blue)
     genre_input = gets.chomp.downcase
     if genre_input.to_i <= Genre.all.count && genre_input.to_i > 0 
     @selected_genre = Genre.all[genre_input.to_i]
@@ -56,7 +56,7 @@ end
     elsif genre_input == 'back'
     get_user_input 
     else 
-      puts "That item does not exist. Please double check your input."
+      puts "That item does not exist. Please double check your input.".colorize(:yellow)
       #genre_input = gets.chomp.downcase
     get_user_input
     end
@@ -64,6 +64,7 @@ end
   
   def show_bio
     puts @selected_genre.bio
+    sleep 5
   end
 
   def more_info
@@ -92,13 +93,15 @@ end
     
     books.each.with_index do |title, i|
       puts "#{i+1}. #{title}"
+      sleep 4
+      go_back?
      
     end
     
   end
   
   def go_back?
-    puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to quit the program."
+    puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to quit the program.".colorize(:green)
     info = gets.chomp.downcase
     if info == 'y'
       list_genres 

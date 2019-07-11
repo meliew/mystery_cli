@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
 require_relative "./mystery_cli/version"
 
 # module MyCliProject
