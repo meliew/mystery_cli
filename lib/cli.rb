@@ -9,7 +9,7 @@ class CLI
     list_genres
     user_input = get_user_input
     if user_input == 'exit' 
-        return
+        exit
     else
     Scraper.info_scraper(@selected_genre)
     # binding.pry
@@ -69,7 +69,7 @@ end
 
   def more_info
     
-    puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no). If you'd like to choose another genre type 'back', otherwise please type 'exit' to quit the program."
+    puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no). If you'd like to choose another genre type 'back', otherwise please type 'exit' to quit the program.".colorize(:light_blue)
     answer = gets.chomp.downcase 
     if answer == "y"
       show_books
@@ -108,7 +108,7 @@ end
       elsif info == 'n' || info == 'exit'
       quit
     else 
-      puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program."
+      puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program.".colorize(:yellow)
       go_back?
     end
     
