@@ -49,7 +49,7 @@ class CLI
     elsif genre_input == 'back'
       get_user_input 
     else 
-      puts "Hmmm, that doesn't look right. Please double check your input and try again(#{genre_input}).".colorize(:yellow)
+      puts "Hmmm, that doesn't look right. Please double check your input and try again.".colorize(:yellow)
       get_user_input
     end
   end
