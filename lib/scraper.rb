@@ -9,11 +9,9 @@ class Scraper
     site = "https://www.goodreads.com"
     page = Nokogiri::HTML(open(site+"/genres/mystery"))
     results = page.css(".left .gr-hyperlink")
-    i = 1
     results.each do |r|
       if r.text != "Fiction" && r.text != "Murder Mystery"
-        Genre.new({:id => i, :name => r.text, :url => site+r.attribute("href").value})
-        i +=1
+        Genre.new({:name => r.text, :url => site+r.attribute("href").value})
       end
     end
   end

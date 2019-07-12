@@ -33,7 +33,7 @@ class CLI
   def list_genres
     puts "Here are the subgenres related to the mystery genre".colorize(:light_blue)
     sleep 2
-    Genre.all.each{ |i, g| puts "#{i}. #{g.name}" }
+    Genre.all.each.with_index{ |g, i| puts "#{i + 1}. #{g.name}" }
   end
   
   def get_user_input
@@ -41,7 +41,7 @@ class CLI
     puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program".colorize(:blue)
     genre_input = gets.chomp.downcase
     
-    genre = Genre.all[genre_input.to_i]
+    genre = Genre.all[genre_input.to_i - 1]
     if genre
       @selected_genre = genre
     elsif genre_input == "exit"
