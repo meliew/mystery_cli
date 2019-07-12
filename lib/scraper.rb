@@ -19,7 +19,6 @@ class Scraper
   end
   
   def self.info_scraper(genre)
-   # binding.pry
     site = genre.url
     page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
     bio_results = page.css("div.mediumText.reviewText span")
@@ -30,19 +29,9 @@ class Scraper
     new_releases.each do |book|
       genre.books << book.attribute("alt").text
     end
-    
   end
   
-  # def self.new_release_scraper(genre)
-  #   site = genre.url
-  #   page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
-  #   new_releases = page.css(".leftContainer .bigBoxBody").first.css(".bookImage")
-  #   books = []
-  #   new_releases.each do |book|
-  #     books << book.attribute("alt").text
-  #   end
-  #   books
-  # end
+
   
 end
 

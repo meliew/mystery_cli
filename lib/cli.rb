@@ -12,7 +12,6 @@ class CLI
         exit
     else
     Scraper.info_scraper(@selected_genre)
-    # binding.pry
     show_bio
     sleep 2
     more_info
@@ -66,7 +65,6 @@ end
       show_books
       elsif answer == "n"
       go_back?
-      #puts "Please type 'exit' to quit, or 'back' to choose a new genre."
         elsif answer == "back"
         list_genres
         elsif answer == 'exit'
@@ -100,14 +98,12 @@ end
       puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program.".colorize(:yellow)
       go_back?
     end
-    
   end
   
  def quit 
-   puts "Goodbye"
+   puts "Thanks for stopping by! See you next time!"
    exit
  end 
- 
 end
 
 
