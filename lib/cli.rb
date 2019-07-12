@@ -9,7 +9,7 @@ class CLI
       list_genres
       user_input = get_user_input
       if user_input == 'exit' 
-        exit
+        quit
       else
         Scraper.info_scraper(@selected_genre)
         show_bio
@@ -38,7 +38,7 @@ class CLI
   
   def get_user_input
     genre_input = nil
-    puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program".colorize(:blue)
+    puts "\nLearn more about a genre by selecting the number next to the one want to hear about.".colorize(:blue)
     genre_input = gets.chomp.downcase
     
     genre = Genre.all[genre_input.to_i - 1]
