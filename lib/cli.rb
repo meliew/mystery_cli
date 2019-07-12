@@ -6,19 +6,19 @@ class CLI
     intro
     Scraper.genre_scraper 
     loop do 
-    list_genres
-    user_input = get_user_input
-    if user_input == 'exit' 
+      list_genres
+      user_input = get_user_input
+      if user_input == 'exit' 
         exit
-    else
-    Scraper.info_scraper(@selected_genre)
-    show_bio
-    sleep 2
-    more_info
-    sleep 4
+      else
+        Scraper.info_scraper(@selected_genre)
+        show_bio
+        sleep 2
+        more_info
+        sleep 4
+      end
     end
   end
-end
   
   
   def intro
@@ -40,14 +40,16 @@ end
     genre_input = nil
     puts "\nLearn more about a genre by selecting the number next to the one want to hear about. You can also type exit if you'd like to quit the program".colorize(:blue)
     genre_input = gets.chomp.downcase
-    if genre_input.to_i <= Genre.all.count && genre_input.to_i > 0 
-    @selected_genre = Genre.all[genre_input.to_i]
+    
+    genre = Genre.all[genre_input.to_i]
+    if genre
+      @selected_genre = genre
     elsif genre_input == "exit"
-    quit 
+      quit 
     elsif genre_input == 'back'
-    get_user_input 
+      get_user_input 
     else 
-      puts "Hmmm, that doesn't look right. Please double check your input and try again.".colorize(:yellow)
+      puts "Hmmm, that doesn't look right. Please double check your input and try again(#{genre_input}).".colorize(:yellow)
       get_user_input
     end
   end
@@ -63,13 +65,13 @@ end
     answer = gets.chomp.downcase 
     if answer == "y"
       show_books
-      elsif answer == "n"
+    elsif answer == "n"
       go_back?
-        elsif answer == "back"
-        list_genres
-        elsif answer == 'exit'
-        quit
-        else 
+    elsif answer == "back"
+      list_genres
+    elsif answer == 'exit'
+      quit
+    else 
       puts "Hmmm, that doesn't look right. Please try again. Type y to see a list of new releases, n for no, 'back' to choose a new genre, and 'exit' to quit the program.".colorize(:yellow)
       more_info
     end
@@ -81,18 +83,17 @@ end
     
     books.each.with_index do |title, i|
       puts "#{i+1}. #{title}"
-      sleep 4
-      go_back?
-     
     end
+    sleep 4
+    go_back?
   end
   
   def go_back?
     puts "Would you like to choose another genre? Type y for 'yes' to go back to the list of subgenres or n for 'no' and to quit the program.".colorize(:green)
     info = gets.chomp.downcase
     if info == 'y'
-      list_genres 
-      elsif info == 'n' || info == 'exit'
+      return
+    elsif info == 'n' || info == 'exit'
       quit
     else 
       puts "Hmmm, I didn't get that. Please type 'y' for yes or 'n' for no and to quit the program.".colorize(:yellow)
