@@ -38,17 +38,15 @@ class CLI
   
   def get_user_input
     genre_input = nil
-    puts "\nLearn more about a genre by selecting the number next to the one want to hear about.".colorize(:blue)
+    puts "\nLearn more about a genre by selecting the number next to the one want to hear about.If you'd like to exit the program please type 'exit'.".colorize(:blue)
     genre_input = gets.chomp.downcase
-    
-    genre = Genre.all[genre_input.to_i - 1]
-    if genre
-      @selected_genre = genre
-    elsif genre_input == "exit"
+    if genre_input == "exit"
       quit 
     elsif genre_input == 'back'
-      get_user_input 
-    else 
+      get_user_input
+    elsif genre_input.to_i > 0 || genre_input.to_i <= Genre.all.length 
+      @selected_genre = Genre.all[genre_input.to_i - 1]
+    else
       puts "Hmmm, that doesn't look right. Please double check your input and try again.".colorize(:yellow)
       get_user_input
     end
