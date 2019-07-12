@@ -1,8 +1,6 @@
 # MysteryCli
 
-Welcome to MysteryCLi! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mystery_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to MysteryCLI! This gem will teach you about all the sub-genres related to "Mystery" and can help you find your latest binge read by providing a list of new releases available now. 
 
 ## Installation
 
