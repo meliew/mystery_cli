@@ -1,6 +1,6 @@
-# MysteryCli
+# MysteryCLI
 
-Welcome to MysteryCLI! Mystery_CLI is a simple gem that helps mystery book lovers explore new subgenres of mysteriew. This little gem can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for subgenres, descriptions, as well as book titles for the latest mystery releases.  
+Welcome to MysteryCLI! MysteryCLI is a simple gem that helps mystery book lovers explore new subgenres of mysteries. This little gem can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for subgenres, descriptions, as well as book titles for the latest mystery releases.  
 
 ## Getting started
 
@@ -13,8 +13,6 @@ You'll need to have Ruby installed as well as the following gems:
 * Nokogiri 
 * Open URI 
 * Colorize 
-
-
 
 ## Set up 
 
@@ -39,24 +37,22 @@ Once you've cloned the files go ahead and cd (change directory) into the folder 
 
 ## Usage
 
- To get started once you're in the project folder, go ahead any type 
+Now that you're in the correct project folder you'll type the following into Terminal:
 
 ```bin/run ```
 
-This will bring up a friendly intro and a list of available sub-genres. Where did this list come from? The info is scraped from the Goodreads website.
+This will bring up a friendly intro and a list of available sub-genres.
 
-After the introduction, you'll be asked to select a number for the sub-genre you'ld like to learn more about. After selecting a number you'll see a short bio about that mystery sub-genre. 
+After the introduction, you'll be asked to select a number for the sub-genre you'ld like to learn more about. After selecting a number you'll see a short bio about your selection. 
 
 Selected a number that didn't exist? No worries, the program will ask for your input again. 
 
-Wish you hadn't opened the program? Type 
-
-``` exit ``` at any time and you'll be out in a flash. 
+Wish you hadn't opened the program? Type ``` exit ``` at any time and you'll be out in a flash. 
 
 After you view the bio of the sub-genre you picked, you'll have the following options: 
-* View a list of new-releases for that sub-genre
-* Go back and choose a different sub-genre
-* Say sayonara and quit the program
+* View a list of new-releases for that sub-genre by typing 'y' for yes (or type 'n' for no)
+* Go back and choose a different sub-genre by typing 'back'
+* Say sayonara and quit the program by typing 'exit'
 
 You can come back to MysteryCLI anytime you'd like to either learn about a different mystery genre, or find a new mystery novel to read. Enjoy! 
 
@@ -74,4 +70,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the MysteryCli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'meliew'/mystery_cli/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the MysteryCLI project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'meliew'/mystery_cli/blob/master/CODE_OF_CONDUCT.md).
