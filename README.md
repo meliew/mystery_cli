@@ -1,6 +1,6 @@
 # MysteryCLI
 
-Welcome to MysteryCLI! MysteryCLI is a simple gem that helps mystery book lovers explore new subgenres of mysteries. This little gem can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for subgenres, descriptions, as well as book titles for the latest mystery releases.  
+Welcome to MysteryCLI! MysteryCLI is a simple gem that helps mystery book lovers explore new sub-genres of mysteries. This little gem can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for sub-genres, descriptions, as well as book titles for the latest mystery releases.  
 
 ## Getting started
 
