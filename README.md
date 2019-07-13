@@ -1,44 +1,59 @@
 # MysteryCli
 
-Welcome to MysteryCLI! This gem will teach you about all the sub-genres related to "Mystery" and can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for bios on genres as well as book titles. 
+Welcome to MysteryCLI! This little gem will teach you about all the sub-genres related to the "Mystery" genre, and can help you find your latest binge read by providing a list of new releases available now. This gem scrapes Goodreads for subgenres, descriptions, as well as book titles for the latest mystery releases.  
 
-# Getting started
+## Getting started
 
-These instructions will get a copy of MysteryCli up and running on your local machine. 
+The instructions below will get a copy of MysteryCli up and running on your local machine. Have fun! 
 
-## Requirements 
+## Technology Requirements 
 
-You'll need to have ruby installed as well as the following gems: 
+You'll need to have Ruby installed as well as the following gems: 
 
-```
-gem install colorize 
-```
+* Nokogiri 
+* Open URI 
+* Colorize 
+* 
 
-```ruby
-gem 'mystery_cli'
-```
 
-And then execute:
+## Set up 
 
-    $ bundle
+To get MysteryCLI up and running you'll need to go to https://github.com/meliew/mystery_cli and select Clone or Download. Feel free to clone the repository, or download the files as a zip file to install on your local machine. 
 
-Or install it yourself as:
+Next, you'll need to install the gems by either typing: 
 
-    $ gem install mystery_cli
+```bundle install ```
+
+or you can install each individually with: 
+
+``` gem install colorize ```
+
+NOTE: If you're having issues installing your gem files, you might need to type 'sudo' in front of each install like so: 
+
+``` sudo gem install colorize ```
+
+Once you've cloned the files go ahead and cd (change directory) into the folder you've created. You're ready to run! 
+
 
 ## Usage
 
-Mystery_CLI is a simple gem that helps mystery book lovers explore new subgenres of mysteries, and find out what books have newly released in those subgenres. To get started you'll run, 'bin/run'
+Mystery_CLI is a simple gem that helps mystery book lovers explore new subgenres of mysteries, and find out what books have newly released in those subgenres. To get started once your in the project folder go ahead any type 
+
+```bin/run ```
+
+This will bring up a friendly intro and a list of available sub-genres. Where did this list come from? This info is scraped from the Goodreads website.
 
 After the introduction, you'll be asked to select a number for the sub-genre you'ld like to learn more about. After selecting a number you'll see a short bio about that mystery sub-genre. 
 
-The program will then ask whether you'd like to see a list of new-releases for that sub-genre, whether you'd like to choose a different sub-genre, or whether you'd like to quit the program. 
+Selected a number that didn't exist? No worries, the program will ask for your input again. 
 
-## Development
+After you view the bio of the sub-genre you picked, you'll have the follwoing options: view a list of new-releases for that sub-genre, go back and choose a different sub-genre, or say sayonara and quit the program. 
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+You can come back to MysteryCLI anytime you'd like to either learn about a mystery genre, or find a new mystery to read. Enjoy! 
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+##Resources 
+
+All info in the MysteryCLI has been lovingly scraped from the Goodreads website. 
 
 ## Contributing
 
