@@ -18,7 +18,8 @@ class Scraper
   
   def self.info_scraper(genre)
     # if genre already contains books it has already been crawled 
-    return if genre.books.length > 0 
+   # return if genre.books.length > 0 
+   if genre.books.length == 0
     site = genre.url
     page = Nokogiri::HTML(open(site), nil, Encoding::UTF_8.to_s)
     bio_results = page.css("div.mediumText.reviewText span")
@@ -28,6 +29,7 @@ class Scraper
 
     new_releases.each do |book|
       genre.books << book.attribute("alt").text
+     end
     end
   end
   

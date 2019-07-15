@@ -25,9 +25,9 @@ class CLI
     puts "\nWelcome to Choose Your Next Mystery!".colorize(:blue)
     sleep 1
     puts "Did you know there are many subgenres related to the mystery genre?"
-    sleep 2
+    sleep 1
     puts "This tool will help you select a new type of mystery. Let's get started!"
-    sleep 3
+    sleep 1
   end
   
   def list_genres
@@ -44,7 +44,7 @@ class CLI
       quit 
     elsif genre_input == 'back'
       get_user_input
-    elsif genre_input.to_i > 0 || genre_input.to_i <= Genre.all.length 
+    elsif genre_input.to_i > 0 && genre_input.to_i <= Genre.all.length 
       @selected_genre = Genre.all[genre_input.to_i - 1]
     else
       puts "Hmmm, that doesn't look right. Please double check your input and try again.".colorize(:yellow)
@@ -61,13 +61,14 @@ class CLI
     
     puts "Would you like to see a list of new releases for your genre?(type y for yes/n for no). If you'd like to choose another genre type 'back', otherwise please type 'exit' to quit the program.".colorize(:light_blue)
     answer = gets.chomp.downcase 
-    if answer == "y"
+    case answer
+    when "y"
       show_books
-    elsif answer == "n"
+    when "n"
       go_back?
-    elsif answer == "back"
+    when "back"
       list_genres
-    elsif answer == 'exit'
+    when 'exit'
       quit
     else 
       puts "Hmmm, that doesn't look right. Please try again. Type y to see a list of new releases, n for no, 'back' to choose a new genre, and 'exit' to quit the program.".colorize(:yellow)
